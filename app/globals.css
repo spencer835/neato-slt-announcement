@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/TWKLausanne-350.woff2") format("woff2");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/TWKLausanne-450.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TWK Lausanne";
+  src: url("/fonts/TWKLausanne-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-canvas: #fafaf8;
+  --color-canvas-warm: #f5f3ed;
+  --color-canvas-cool: #f0f1f3;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #6b6b6b;
+  --color-ink-faint: #9a9a9a;
+  --color-line: #e5e3dd;
+  --color-blossom: #ec5b91;
+  --color-blossom-soft: #fde8f0;
+  --color-deep: #0e1726;
+  --font-sans: "TWK Lausanne", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: var(--color-canvas);
+  --foreground: var(--color-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-blossom) 24%, white);
+}
+
+.type-display-large {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.type-display-medium {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.type-display-small {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.type-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+}
+
+.type-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-line) 65%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-line) 65%, transparent) 1px, transparent 1px);
+  background-size: 36px 36px;
+  background-position: center;
+}
+
+.soft-shadow {
+  box-shadow:
+    0 1px 0 rgba(26, 26, 26, 0.02),
+    0 18px 60px rgba(26, 26, 26, 0.05);
+}
