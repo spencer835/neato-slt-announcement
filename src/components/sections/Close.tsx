@@ -21,7 +21,10 @@ export function Close() {
       <p className="type-display-medium mt-12 max-w-4xl text-4xl sm:text-5xl lg:text-6xl">
         {CLOSE_LINE}
       </p>
-      <p className="mt-6 text-lg italic text-ink-muted">— Anthony & Spencer</p>
+      <p
+        className="mt-6 text-lg italic text-ink-muted"
+        dangerouslySetInnerHTML={{ __html: "— Anthony & Spencer\n" }}
+      />
     </SectionWrapper>
   );
 }

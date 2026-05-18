@@ -21,9 +21,10 @@ export function Letter() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-        <p className="mt-10 text-right text-lg italic text-ink-muted">
-          — Anthony & Spencer
-        </p>
+        <p
+          className="mt-10 text-right text-lg italic text-ink-muted"
+          dangerouslySetInnerHTML={{ __html: "— Anthony & Spencer\n" }}
+        />
       </div>
     </SectionWrapper>
   );
