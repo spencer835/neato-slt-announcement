@@ -3,122 +3,95 @@ import { SectionWrapper } from "@/src/components/ui/SectionWrapper";
 import { founderLeads, sltMembers } from "@/src/lib/team";
 
 const memberByName = Object.fromEntries(sltMembers.map((member) => [member.name, member]));
+const founderById = Object.fromEntries(founderLeads.map((founder) => [founder.id, founder]));
 
 const desktopNodes = [
-  { key: "anthony", type: "founder", x: 206, y: 20, width: 204, height: 156, row: "Founders" },
-  { key: "spencer", type: "founder", x: 934, y: 20, width: 204, height: 156, row: "Founders" },
-  { key: "Arun Srinivasan", type: "member", x: 176, y: 214, width: 172, height: 132, row: "VP" },
-  { key: "Tom Abrams", type: "member", x: 966, y: 214, width: 172, height: 132, row: "VP" },
-  { key: "Alexa Salter", type: "member", x: 126, y: 392, width: 172, height: 132, row: "Sr Director" },
-  { key: "Briana Drago", type: "member", x: 786, y: 392, width: 172, height: 132, row: "Sr Director" },
-  { key: "Cody North", type: "member", x: 1016, y: 392, width: 172, height: 132, row: "Sr Director" },
-  { key: "Ofir Dahan", type: "member", x: 96, y: 570, width: 172, height: 132, row: "Director" },
-  { key: "Yousif Hammoudeh", type: "member", x: 306, y: 570, width: 172, height: 132, row: "Director" },
-  { key: "Alison Ratering", type: "member", x: 666, y: 570, width: 172, height: 132, row: "Director" },
-  { key: "Stacey Silva", type: "member", x: 876, y: 570, width: 172, height: 132, row: "Director" },
-  { key: "Conni Lathrop", type: "member", x: 1086, y: 570, width: 172, height: 132, row: "Director" },
-  { key: "Aziel Cabral", type: "member", x: 876, y: 748, width: 172, height: 132, row: "Sr Manager" },
+  { key: "anthony", type: "founder", x: 270, y: 20, width: 200, height: 156, scale: 200 / 204 },
+  { key: "spencer", type: "founder", x: 850, y: 20, width: 200, height: 156, scale: 200 / 204 },
+  { key: "Arun Srinivasan", type: "member", x: 60, y: 240, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Alexa Salter", type: "member", x: 250, y: 280, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Ofir Dahan", type: "member", x: 440, y: 320, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Yousif Hammoudeh", type: "member", x: 60, y: 470, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Tom Abrams", type: "member", x: 720, y: 240, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Briana Drago", type: "member", x: 910, y: 280, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Cody North", type: "member", x: 1100, y: 280, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Alison Ratering", type: "member", x: 720, y: 470, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Aziel Cabral", type: "member", x: 1100, y: 470, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Conni Lathrop", type: "member", x: 720, y: 605, width: 160, height: 130, scale: 160 / 172 },
+  { key: "Stacey Silva", type: "member", x: 910, y: 605, width: 160, height: 130, scale: 160 / 172 },
 ] as const;
 
-const desktopNodeMap = Object.fromEntries(desktopNodes.map((node) => [node.key, node]));
-
-const rowGuides = [
-  { label: "Founders", y: 98 },
-  { label: "VP", y: 280 },
-  { label: "Sr Director", y: 458 },
-  { label: "Director", y: 636 },
-  { label: "Sr Manager", y: 814 },
+const solidPaths = [
+  { key: "anthony-arun", d: "M 370 176 L 370 210 L 140 210 L 140 240" },
+  { key: "anthony-alexa", d: "M 370 176 L 370 220 L 330 220 L 330 280" },
+  { key: "anthony-ofir", d: "M 370 176 L 370 230 L 520 230 L 520 320" },
+  { key: "anthony-yousif", d: "M 370 176 L 370 240 L 140 240 L 140 470" },
+  { key: "spencer-tom", d: "M 950 176 L 950 210 L 800 210 L 800 240" },
+  { key: "spencer-bri", d: "M 950 176 L 950 220 L 990 220 L 990 280" },
+  { key: "spencer-cody", d: "M 950 176 L 950 230 L 1180 230 L 1180 280" },
+  { key: "spencer-alison", d: "M 950 176 L 950 240 L 800 240 L 800 470" },
+  { key: "spencer-aziel", d: "M 950 176 L 950 250 L 1180 250 L 1180 470" },
+  { key: "tom-conni", d: "M 800 370 L 800 430 L 800 430 L 800 605" },
+  { key: "bri-stacey", d: "M 990 410 L 990 470 L 990 470 L 990 605" },
 ] as const;
 
-const solidConnections = [
-  ["anthony", "Arun Srinivasan"],
-  ["spencer", "Tom Abrams"],
-  ["anthony", "Alexa Salter"],
-  ["spencer", "Briana Drago"],
-  ["spencer", "Cody North"],
-  ["anthony", "Ofir Dahan"],
-  ["anthony", "Yousif Hammoudeh"],
-  ["spencer", "Alison Ratering"],
-  ["Briana Drago", "Stacey Silva"],
-  ["Tom Abrams", "Conni Lathrop"],
-  ["spencer", "Aziel Cabral"],
-] as const;
-
-const dottedConnections = [
-  { from: "anthony", to: "Stacey Silva", fromOffsetX: -32, toOffsetX: -28, elbowOffsetY: -18 },
-  { from: "spencer", to: "Stacey Silva", fromOffsetX: 28, toOffsetX: 28, elbowOffsetY: 18 },
-] as const;
-
-const mobileTierGroups = [
-  { label: "Founders", members: founderLeads.map((founder) => founder.name) },
-  { label: "VPs", members: ["Arun Srinivasan", "Tom Abrams"] },
-  { label: "Senior Directors", members: ["Alexa Salter", "Briana Drago", "Cody North"] },
+const dottedPaths = [
   {
-    label: "Directors",
-    members: ["Ofir Dahan", "Yousif Hammoudeh", "Alison Ratering", "Stacey Silva", "Conni Lathrop"],
+    key: "stacey-spencer",
+    d: "M 990 605 L 990 530 L 950 530 L 950 176",
   },
-  { label: "Senior Manager", members: ["Aziel Cabral"] },
+  {
+    key: "stacey-anthony",
+    d: "M 990 605 L 990 545 L 370 545 L 370 176",
+  },
 ] as const;
 
-function getDesktopAnchor(key: keyof typeof desktopNodeMap | string) {
-  const node = desktopNodeMap[key];
+const mobileSections = [
+  {
+    founderId: "anthony",
+    heading: "Anthony Connelly — CEO",
+    directReports: [
+      "Arun Srinivasan",
+      "Alexa Salter",
+      "Ofir Dahan",
+      "Yousif Hammoudeh",
+    ],
+    secondaryReports: {},
+  },
+  {
+    founderId: "spencer",
+    heading: "Spencer Jacobs — President",
+    directReports: [
+      "Tom Abrams",
+      "Briana Drago",
+      "Cody North",
+      "Alison Ratering",
+      "Aziel Cabral",
+    ],
+    secondaryReports: {
+      "Tom Abrams": ["Conni Lathrop"],
+      "Briana Drago": ["Stacey Silva"],
+    },
+  },
+] as const;
 
-  if (!node) {
-    throw new Error(`Missing desktop node for ${key}`);
+function getSecondaryReports(
+  section: (typeof mobileSections)[number],
+  name: string,
+): readonly string[] {
+  if (name in section.secondaryReports) {
+    return section.secondaryReports[name as keyof typeof section.secondaryReports];
   }
 
-  return {
-    centerX: node.x + node.width / 2,
-    topY: node.y,
-    bottomY: node.y + node.height,
-  };
-}
-
-function buildOrthogonalPath(
-  fromKey: string,
-  toKey: string,
-  offsets?: {
-    fromOffsetX?: number;
-    toOffsetX?: number;
-    elbowOffsetY?: number;
-  },
-) {
-  const from = getDesktopAnchor(fromKey);
-  const to = getDesktopAnchor(toKey);
-  const elbowY =
-    from.bottomY +
-    Math.max(34, Math.min(74, (to.topY - from.bottomY) / 2)) +
-    (offsets?.elbowOffsetY ?? 0);
-  const fromX = from.centerX + (offsets?.fromOffsetX ?? 0);
-  const toX = to.centerX + (offsets?.toOffsetX ?? 0);
-
-  return `M ${fromX} ${from.bottomY} L ${fromX} ${elbowY} L ${toX} ${elbowY} L ${toX} ${to.topY}`;
+  return [];
 }
 
 function getReportsToCopy(name: string) {
   switch (name) {
-    case "Arun Srinivasan":
-      return "reports to Anthony Connelly";
-    case "Tom Abrams":
-      return "reports to Spencer Jacobs";
-    case "Alexa Salter":
-      return "reports to Anthony Connelly";
-    case "Briana Drago":
-      return "reports to Spencer Jacobs";
-    case "Cody North":
-      return "reports to Spencer Jacobs";
-    case "Ofir Dahan":
-      return "reports to Anthony Connelly";
-    case "Yousif Hammoudeh":
-      return "reports to Anthony Connelly";
-    case "Alison Ratering":
-      return "reports to Spencer Jacobs";
-    case "Stacey Silva":
-      return "reports to Briana Drago (dotted to Anthony & Spencer)";
     case "Conni Lathrop":
       return "reports to Tom Abrams";
-    case "Aziel Cabral":
-      return "reports to Spencer Jacobs";
+    case "Stacey Silva":
+      return "reports to Briana Drago, with dotted lines to Anthony & Spencer";
     default:
       return "";
   }
@@ -135,75 +108,53 @@ export function OrgChart() {
       contentClassName="space-y-10"
     >
       <div className="hidden overflow-x-auto rounded-[2rem] border border-line bg-white/70 p-6 xl:block">
-        <div className="relative mx-auto h-[920px] w-[1360px]">
+        <div className="relative mx-auto h-[740px] w-[1320px]">
           <svg
             aria-hidden="true"
             className="absolute inset-0 h-full w-full"
-            viewBox="0 0 1360 920"
+            viewBox="0 0 1320 740"
             fill="none"
           >
-            {rowGuides.map((row) => (
-              <g key={row.label}>
-                <text
-                  x="12"
-                  y={row.y}
-                  fill="var(--color-ink-muted)"
-                  fontSize="13"
-                  letterSpacing="0.18em"
-                  textAnchor="start"
-                >
-                  {row.label.toUpperCase()}
-                </text>
-                <line
-                  x1="110"
-                  y1={row.y}
-                  x2="1348"
-                  y2={row.y}
-                  stroke="var(--color-line)"
-                  strokeOpacity="0.22"
-                />
-              </g>
-            ))}
-
-            {solidConnections.map(([from, to]) => (
+            {solidPaths.map((path) => (
               <path
-                key={`${from}-${to}`}
-                d={buildOrthogonalPath(from, to)}
+                key={path.key}
+                d={path.d}
                 stroke="var(--color-line)"
-                strokeOpacity="0.9"
-                strokeWidth="1.2"
+                strokeOpacity="0.3"
+                strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
             ))}
 
-            {dottedConnections.map((connection) => (
+            {dottedPaths.map((path) => (
               <path
-                key={`${connection.from}-${connection.to}-${connection.toOffsetX}`}
-                d={buildOrthogonalPath(connection.from, connection.to, connection)}
+                key={path.key}
+                d={path.d}
                 stroke="var(--color-blossom)"
-                strokeWidth="1.8"
-                strokeDasharray="8 6"
+                strokeWidth="2"
+                strokeDasharray="10 6"
+                fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
             ))}
 
             <text
-              x="1038"
-              y="504"
+              x="1008"
+              y="518"
               fill="var(--color-blossom)"
-              fontSize="12"
+              fontSize="11"
               letterSpacing="0.14em"
               textAnchor="start"
             >
-              DOTTED
+              ADVISORY
             </text>
           </svg>
 
           {desktopNodes.map((node) => {
             if (node.type === "founder") {
-              const founder = founderLeads.find((lead) => lead.id === node.key);
+              const founder = founderById[node.key];
 
               if (!founder) {
                 return null;
@@ -212,16 +163,18 @@ export function OrgChart() {
               return (
                 <div
                   key={node.key}
-                  className="absolute"
-                  style={{ left: `${node.x}px`, top: `${node.y}px` }}
+                  className="absolute overflow-hidden"
+                  style={{ left: `${node.x}px`, top: `${node.y}px`, width: `${node.width}px`, height: `${node.height}px` }}
                 >
-                  <ChartNode
-                    variant="founder"
-                    name={founder.name}
-                    title={founder.title}
-                    image={founder.image}
-                    initials={founder.initials}
-                  />
+                  <div style={{ transform: `scale(${node.scale})`, transformOrigin: "top left" }}>
+                    <ChartNode
+                      variant="founder"
+                      name={founder.name}
+                      title={founder.title}
+                      image={founder.image}
+                      initials={founder.initials}
+                    />
+                  </div>
                 </div>
               );
             }
@@ -235,10 +188,12 @@ export function OrgChart() {
             return (
               <div
                 key={node.key}
-                className="absolute"
-                style={{ left: `${node.x}px`, top: `${node.y}px` }}
+                className="absolute overflow-hidden"
+                style={{ left: `${node.x}px`, top: `${node.y}px`, width: `${node.width}px`, height: `${node.height}px` }}
               >
-                <ChartNode variant="member" name={member.name} title={member.title} image={member.image} />
+                <div style={{ transform: `scale(${node.scale})`, transformOrigin: "top left" }}>
+                  <ChartNode variant="member" name={member.name} title={member.title} image={member.image} />
+                </div>
               </div>
             );
           })}
@@ -250,62 +205,96 @@ export function OrgChart() {
       </div>
 
       <div className="space-y-5 xl:hidden">
-        {mobileTierGroups.map((group) => (
-          <section key={group.label} className="rounded-[2rem] border border-line bg-white/80 p-6">
-            <div className="mb-5 flex items-end justify-between gap-4">
-              <div>
-                <p className="type-eyebrow text-ink-faint">{group.label}</p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-ink">
-                  {group.label}
-                </h3>
+        {mobileSections.map((section) => {
+          const founder = founderById[section.founderId];
+
+          if (!founder) {
+            return null;
+          }
+
+          const totalCount =
+            1 +
+            section.directReports.length +
+            Object.values(section.secondaryReports).reduce((sum, reports) => sum + reports.length, 0);
+
+          return (
+            <section
+              key={section.founderId}
+              className="rounded-[2rem] border border-line bg-white/80 p-6"
+            >
+              <div className="mb-5 flex items-end justify-between gap-4">
+                <div>
+                  <p className="type-eyebrow text-ink-faint">Founder Group</p>
+                  <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-ink">
+                    {section.heading}
+                  </h3>
+                </div>
+                <p className="text-sm text-ink-muted">{totalCount} people</p>
               </div>
-              <p className="text-sm text-ink-muted">{group.members.length} people</p>
-            </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {group.members.map((name) => {
-                const founder = founderLeads.find((lead) => lead.name === name);
+              <div className="space-y-4">
+                <div className="rounded-[1.5rem] border border-line bg-canvas p-4">
+                  <ChartNode
+                    variant="founder"
+                    name={founder.name}
+                    title={founder.title}
+                    image={founder.image}
+                    initials={founder.initials}
+                    className="w-full"
+                  />
+                </div>
 
-                if (founder) {
+                {section.directReports.map((name) => {
+                  const member = memberByName[name];
+
+                  if (!member) {
+                    return null;
+                  }
+
                   return (
-                    <div key={name} className="rounded-[1.5rem] border border-line bg-canvas p-4">
-                      <ChartNode
-                        variant="founder"
-                        name={founder.name}
-                        title={founder.title}
-                        image={founder.image}
-                        initials={founder.initials}
-                        className="w-full"
-                      />
+                    <div key={name} className="space-y-3">
+                      <div className="rounded-[1.5rem] border border-line bg-canvas p-4">
+                        <ChartNode
+                          variant="member"
+                          name={member.name}
+                          title={member.title}
+                          image={member.image}
+                          className="w-full"
+                        />
+                      </div>
+
+                      {getSecondaryReports(section, name).map((secondaryName) => {
+                        const secondaryMember = memberByName[secondaryName];
+
+                        if (!secondaryMember) {
+                          return null;
+                        }
+
+                        return (
+                          <div
+                            key={secondaryName}
+                            className="ml-5 rounded-[1.5rem] border border-line bg-blossom-soft/35 p-4"
+                          >
+                            <ChartNode
+                              variant="member"
+                              name={secondaryMember.name}
+                              title={secondaryMember.title}
+                              image={secondaryMember.image}
+                              className="w-full"
+                            />
+                            <p className="mt-3 text-sm text-ink-muted">
+                              {getReportsToCopy(secondaryMember.name)}
+                            </p>
+                          </div>
+                        );
+                      })}
                     </div>
                   );
-                }
-
-                const member = memberByName[name];
-
-                if (!member) {
-                  return null;
-                }
-
-                return (
-                  <div
-                    key={name}
-                    className="rounded-[1.5rem] border border-line bg-canvas p-4"
-                  >
-                    <ChartNode
-                      variant="member"
-                      name={member.name}
-                      title={member.title}
-                      image={member.image}
-                      className="w-full"
-                    />
-                    <p className="mt-3 text-sm text-ink-muted">{getReportsToCopy(member.name)}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        ))}
+                })}
+              </div>
+            </section>
+          );
+        })}
       </div>
     </SectionWrapper>
   );
