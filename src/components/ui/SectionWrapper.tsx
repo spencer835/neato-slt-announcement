@@ -1,4 +1,7 @@
+"use client";
+
 import clsx from "clsx";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 type Background = "canvas" | "warm" | "cool" | "deep";
@@ -29,8 +32,10 @@ export function SectionWrapper({
   className?: string;
   contentClassName?: string;
 }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <section
+    <motion.section
       id={id}
       className={clsx(
         "relative isolate overflow-hidden border-b border-line/70",
@@ -38,6 +43,10 @@ export function SectionWrapper({
         backgroundClass[background],
         className,
       )}
+      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="mx-auto w-full max-w-7xl">
         {(eyebrow || title || description) && (
@@ -59,6 +68,6 @@ export function SectionWrapper({
         )}
         <div className={contentClassName}>{children}</div>
       </div>
-    </section>
+    </motion.section>
   );
 }

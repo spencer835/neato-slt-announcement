@@ -60,6 +60,7 @@ export function OrgChart() {
               variant="founder"
               name={founderLeads[0].name}
               title={founderLeads[0].title}
+              image={founderLeads[0].image}
               initials={founderLeads[0].initials}
             />
           </div>
@@ -68,6 +69,7 @@ export function OrgChart() {
               variant="founder"
               name={founderLeads[1].name}
               title={founderLeads[1].title}
+              image={founderLeads[1].image}
               initials={founderLeads[1].initials}
             />
           </div>
@@ -127,6 +129,7 @@ export function OrgChart() {
               variant="founder"
               name={founderLeads[0].name}
               title={founderLeads[0].title}
+              image={founderLeads[0].image}
               initials={founderLeads[0].initials}
             />
             <div>
@@ -156,6 +159,7 @@ export function OrgChart() {
               variant="founder"
               name={founderLeads[1].name}
               title={founderLeads[1].title}
+              image={founderLeads[1].image}
               initials={founderLeads[1].initials}
             />
             <div>

@@ -8,6 +8,14 @@ export type SLTMember = {
   isPromotedToday: boolean;
 };
 
+export type FounderLead = {
+  id: "anthony" | "spencer";
+  name: string;
+  title: string;
+  image: string;
+  initials: string;
+};
+
 export const sltMembers: SLTMember[] = [
   {
     name: "Arun Srinivasan",
@@ -122,17 +130,19 @@ export const sltTiers = [
   },
 ] as const;
 
-export const founderLeads = [
+export const founderLeads: FounderLead[] = [
   {
     id: "anthony",
     name: "Anthony Connelly",
     title: "CEO",
+    image: "/team/anthony.png",
     initials: "AC",
   },
   {
     id: "spencer",
     name: "Spencer Jacobs",
     title: "President",
+    image: "/team/spencer.jpg",
     initials: "SJ",
   },
-] as const;
+];
