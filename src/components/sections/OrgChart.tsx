@@ -30,7 +30,7 @@ const solidPaths = [
   { key: "spencer-bri", d: "M 980 160 L 980 200 L 1020 200 L 1020 330" },
   { key: "spencer-cody", d: "M 980 160 L 980 200 L 1200 200 L 1200 330" },
   { key: "spencer-alison", d: "M 980 160 L 980 200 L 910 200 L 910 460" },
-  { key: "spencer-aziel", d: "M 980 160 L 980 200 L 1240 200 L 1240 460" },
+  { key: "spencer-aziel", d: "M 980 160 L 980 200 L 1310 200 L 1310 460 L 1240 460" },
   { key: "tom-conni", d: "M 770 300 L 770 340 L 770 460" },
   { key: "bri-stacey", d: "M 1020 430 L 1020 460 L 1050 460" },
 ] as const;
@@ -38,7 +38,7 @@ const solidPaths = [
 const dottedPaths = [
   {
     key: "stacey-spencer",
-    d: "M 1050 460 L 1050 420 L 980 420 L 980 160",
+    d: "M 1050 460 L 1050 445 L 1310 445 L 1310 200 L 980 200 L 980 160",
   },
   {
     key: "stacey-anthony",

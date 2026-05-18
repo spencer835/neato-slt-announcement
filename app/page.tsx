@@ -1,4 +1,3 @@
-import { Close } from "@/src/components/sections/Close";
 import { Hero } from "@/src/components/sections/Hero";
 import { Letter } from "@/src/components/sections/Letter";
 import { NextMeeting } from "@/src/components/sections/NextMeeting";
@@ -19,7 +18,6 @@ export default function Home() {
       <SLTRoster />
       <OrgChart />
       <NextMeeting />
-      <Close />
     </main>
   );
 }

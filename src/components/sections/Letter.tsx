@@ -2,9 +2,7 @@ import { SectionWrapper } from "@/src/components/ui/SectionWrapper";
 
 const LETTER_COPY = `Team —
 
-Today is about three things: formalizing the leadership structure that's been quietly running this company, recognizing the people who've earned the next step, and giving you a clear picture of what we're building together.
-
-Read on.`;
+This memo is about three things: formalizing the leadership structure, recognizing the people who've earned the next step, and giving you a clear picture of what we're building together as we plan for the next quarter and beyond.`;
 
 export function Letter() {
   return (
