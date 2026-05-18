@@ -6,43 +6,43 @@ const memberByName = Object.fromEntries(sltMembers.map((member) => [member.name,
 const founderById = Object.fromEntries(founderLeads.map((founder) => [founder.id, founder]));
 
 const desktopNodes = [
-  { key: "anthony", type: "founder", x: 270, y: 20, width: 200, height: 156, scale: 200 / 204 },
-  { key: "spencer", type: "founder", x: 850, y: 20, width: 200, height: 156, scale: 200 / 204 },
-  { key: "Arun Srinivasan", type: "member", x: 60, y: 240, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Alexa Salter", type: "member", x: 250, y: 280, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Ofir Dahan", type: "member", x: 440, y: 320, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Yousif Hammoudeh", type: "member", x: 60, y: 470, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Tom Abrams", type: "member", x: 720, y: 240, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Briana Drago", type: "member", x: 910, y: 280, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Cody North", type: "member", x: 1100, y: 280, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Alison Ratering", type: "member", x: 720, y: 470, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Aziel Cabral", type: "member", x: 1100, y: 470, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Conni Lathrop", type: "member", x: 720, y: 605, width: 160, height: 130, scale: 160 / 172 },
-  { key: "Stacey Silva", type: "member", x: 910, y: 605, width: 160, height: 130, scale: 160 / 172 },
+  { key: "anthony", type: "founder", x: 240, y: 20, width: 160, height: 140, scale: 160 / 204 },
+  { key: "spencer", type: "founder", x: 900, y: 20, width: 160, height: 140, scale: 160 / 204 },
+  { key: "Arun Srinivasan", type: "member", x: 40, y: 200, width: 140, height: 100, scale: 140 / 172 },
+  { key: "Tom Abrams", type: "member", x: 700, y: 200, width: 140, height: 100, scale: 140 / 172 },
+  { key: "Alexa Salter", type: "member", x: 470, y: 330, width: 120, height: 100, scale: 120 / 172 },
+  { key: "Briana Drago", type: "member", x: 960, y: 330, width: 120, height: 100, scale: 120 / 172 },
+  { key: "Cody North", type: "member", x: 1140, y: 330, width: 120, height: 100, scale: 120 / 172 },
+  { key: "Ofir Dahan", type: "member", x: 190, y: 460, width: 120, height: 100, scale: 120 / 172 },
+  { key: "Yousif Hammoudeh", type: "member", x: 330, y: 460, width: 120, height: 100, scale: 120 / 172 },
+  { key: "Conni Lathrop", type: "member", x: 710, y: 460, width: 120, height: 100, scale: 120 / 172 },
+  { key: "Alison Ratering", type: "member", x: 850, y: 460, width: 120, height: 100, scale: 120 / 172 },
+  { key: "Stacey Silva", type: "member", x: 990, y: 460, width: 120, height: 100, scale: 120 / 172 },
+  { key: "Aziel Cabral", type: "member", x: 1180, y: 460, width: 120, height: 100, scale: 120 / 172 },
 ] as const;
 
 const solidPaths = [
-  { key: "anthony-arun", d: "M 370 176 L 370 210 L 140 210 L 140 240" },
-  { key: "anthony-alexa", d: "M 370 176 L 370 220 L 330 220 L 330 280" },
-  { key: "anthony-ofir", d: "M 370 176 L 370 230 L 520 230 L 520 320" },
-  { key: "anthony-yousif", d: "M 370 176 L 370 240 L 140 240 L 140 470" },
-  { key: "spencer-tom", d: "M 950 176 L 950 210 L 800 210 L 800 240" },
-  { key: "spencer-bri", d: "M 950 176 L 950 220 L 990 220 L 990 280" },
-  { key: "spencer-cody", d: "M 950 176 L 950 230 L 1180 230 L 1180 280" },
-  { key: "spencer-alison", d: "M 950 176 L 950 240 L 800 240 L 800 470" },
-  { key: "spencer-aziel", d: "M 950 176 L 950 250 L 1180 250 L 1180 470" },
-  { key: "tom-conni", d: "M 800 370 L 800 430 L 800 430 L 800 605" },
-  { key: "bri-stacey", d: "M 990 410 L 990 470 L 990 470 L 990 605" },
+  { key: "anthony-arun", d: "M 320 160 L 320 200 L 110 200" },
+  { key: "anthony-alexa", d: "M 320 160 L 320 200 L 530 200 L 530 330" },
+  { key: "anthony-ofir", d: "M 320 160 L 320 200 L 250 200 L 250 460" },
+  { key: "anthony-yousif", d: "M 320 160 L 320 200 L 390 200 L 390 460" },
+  { key: "spencer-tom", d: "M 980 160 L 980 200 L 770 200" },
+  { key: "spencer-bri", d: "M 980 160 L 980 200 L 1020 200 L 1020 330" },
+  { key: "spencer-cody", d: "M 980 160 L 980 200 L 1200 200 L 1200 330" },
+  { key: "spencer-alison", d: "M 980 160 L 980 200 L 910 200 L 910 460" },
+  { key: "spencer-aziel", d: "M 980 160 L 980 200 L 1240 200 L 1240 460" },
+  { key: "tom-conni", d: "M 770 300 L 770 340 L 770 460" },
+  { key: "bri-stacey", d: "M 1020 430 L 1020 460 L 1050 460" },
 ] as const;
 
 const dottedPaths = [
   {
     key: "stacey-spencer",
-    d: "M 990 605 L 990 530 L 950 530 L 950 176",
+    d: "M 1050 460 L 1050 420 L 980 420 L 980 160",
   },
   {
     key: "stacey-anthony",
-    d: "M 990 605 L 990 545 L 370 545 L 370 176",
+    d: "M 1050 460 L 1050 440 L 320 440 L 320 160",
   },
 ] as const;
 
@@ -108,20 +108,20 @@ export function OrgChart() {
       contentClassName="space-y-10"
     >
       <div className="hidden overflow-x-auto rounded-[2rem] border border-line bg-white/70 p-6 xl:block">
-        <div className="relative mx-auto h-[740px] w-[1320px]">
+        <div className="relative mx-auto h-[640px] w-[1320px]">
           <svg
             aria-hidden="true"
             className="absolute inset-0 h-full w-full"
-            viewBox="0 0 1320 740"
+            viewBox="0 0 1320 640"
             fill="none"
           >
             {solidPaths.map((path) => (
               <path
                 key={path.key}
                 d={path.d}
-                stroke="var(--color-line)"
-                strokeOpacity="0.3"
-                strokeWidth="1"
+                stroke="#000000"
+                strokeWidth="1.5"
+                fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
