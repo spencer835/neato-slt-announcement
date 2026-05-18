@@ -9,7 +9,7 @@ export function Letter() {
     <SectionWrapper
       id="letter"
       background="canvas"
-      eyebrow="A Note From Anthony & Spencer"
+      eyebrow="A Note From Leadership"
       className="min-h-[72vh]"
       contentClassName="flex justify-center"
     >

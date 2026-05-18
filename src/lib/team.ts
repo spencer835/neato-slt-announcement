@@ -6,6 +6,7 @@ export type SLTMember = {
   reportsTo: "anthony" | "spencer" | "tom" | "bri";
   dottedLineTo?: "spencer";
   isPromotedToday: boolean;
+  isNewThisWeek?: boolean;
 };
 
 export type FounderLead = {
@@ -89,6 +90,7 @@ export const sltMembers: SLTMember[] = [
     reportsTo: "bri",
     dottedLineTo: "spencer",
     isPromotedToday: true,
+    isNewThisWeek: true,
   },
   {
     name: "Conni Lathrop",
@@ -97,6 +99,7 @@ export const sltMembers: SLTMember[] = [
     tier: "Director",
     reportsTo: "tom",
     isPromotedToday: true,
+    isNewThisWeek: true,
   },
   {
     name: "Aziel Cabral",

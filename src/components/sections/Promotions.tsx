@@ -19,6 +19,7 @@ export function Promotions() {
           title={member.title}
           image={member.image}
           featured
+          newBadge={member.isNewThisWeek}
         />
       ))}
     </SectionWrapper>

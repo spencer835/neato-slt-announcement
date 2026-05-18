@@ -7,6 +7,7 @@ export function PersonCard({
   image,
   featured = false,
   inverse = false,
+  newBadge = false,
   className,
 }: {
   name: string;
@@ -14,21 +15,34 @@ export function PersonCard({
   image: string;
   featured?: boolean;
   inverse?: boolean;
+  newBadge?: boolean;
   className?: string;
 }) {
   return (
     <article
       className={clsx(
-        "soft-shadow flex flex-col items-center rounded-[2rem] border p-6 text-center transition-transform duration-200",
+        "soft-shadow relative flex flex-col items-center rounded-[2rem] border p-6 text-center transition-transform duration-200",
         inverse
           ? "border-white/12 bg-white/8 text-canvas"
-          : "border-line/90 bg-white/75 text-ink",
+          : newBadge
+            ? "border-blossom bg-blossom-soft/40 text-ink ring-2 ring-blossom/60"
+            : "border-line/90 bg-white/75 text-ink",
         featured ? "min-h-[22rem]" : "min-h-[20rem]",
         "hover:-translate-y-1",
         className,
       )}
     >
-      <div className="relative h-32 w-32 overflow-hidden rounded-full ring-1 ring-black/5 sm:h-36 sm:w-36">
+      {newBadge && (
+        <span className="type-eyebrow absolute right-5 top-5 rounded-full bg-blossom px-3 py-1 text-[0.6875rem] text-white">
+          New This Week
+        </span>
+      )}
+      <div
+        className={clsx(
+          "relative h-32 w-32 overflow-hidden rounded-full sm:h-36 sm:w-36",
+          newBadge ? "ring-4 ring-blossom" : "ring-1 ring-black/5",
+        )}
+      >
         <Image
           src={image}
           alt={name}

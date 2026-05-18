@@ -37,12 +37,9 @@ const solidPaths = [
 
 const dottedPaths = [
   {
-    key: "stacey-spencer",
-    d: "M 1050 460 L 1050 445 L 1310 445 L 1310 200 L 980 200 L 980 160",
-  },
-  {
-    key: "stacey-anthony",
-    d: "M 1050 460 L 1050 440 L 320 440 L 320 160",
+    // Single pink advisory line: Spencer down to Stacey, routed through the Bri/Cody gap
+    key: "spencer-stacey",
+    d: "M 980 160 L 980 200 L 1110 200 L 1110 460 L 1050 460",
   },
 ] as const;
 
@@ -140,16 +137,6 @@ export function OrgChart() {
               />
             ))}
 
-            <text
-              x="1008"
-              y="518"
-              fill="var(--color-blossom)"
-              fontSize="11"
-              letterSpacing="0.14em"
-              textAnchor="start"
-            >
-              ADVISORY
-            </text>
           </svg>
 
           {desktopNodes.map((node) => {
@@ -198,9 +185,6 @@ export function OrgChart() {
             );
           })}
 
-          <div className="absolute bottom-4 left-6 rounded-full border border-line bg-canvas px-4 py-2 text-sm text-ink-muted">
-            Solid lines show direct reports. Blossom dashed lines mark Stacey&apos;s advisory links to Anthony and Spencer.
-          </div>
         </div>
       </div>
 
