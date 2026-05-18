@@ -125,7 +125,7 @@ export function NeatoOgImage() {
               letterSpacing: "-0.02em",
             }}
           >
-            May 2026 — A Note From Spencer & Anthony
+            May 2026 — A Note From Anthony & Spencer
           </div>
         </div>
       </div>

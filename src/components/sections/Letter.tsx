@@ -11,7 +11,7 @@ export function Letter() {
     <SectionWrapper
       id="letter"
       background="canvas"
-      eyebrow="A Note From Spencer & Anthony"
+      eyebrow="A Note From Anthony & Spencer"
       className="min-h-[72vh]"
       contentClassName="flex justify-center"
     >
@@ -22,7 +22,7 @@ export function Letter() {
           ))}
         </div>
         <p className="mt-10 text-right text-lg italic text-ink-muted">
-          — Spencer & Anthony
+          — Anthony & Spencer
         </p>
       </div>
     </SectionWrapper>

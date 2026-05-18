@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl = "https://neato-slt-announcement.vercel.app";
-const title = "Neato — A Note From Spencer & Anthony";
+const title = "Neato — A Note From Anthony & Spencer";
 const description =
   "Introducing the formal Senior Leadership Team, announcing key promotions, and a look at what's next.";
 
