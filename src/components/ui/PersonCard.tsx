@@ -27,7 +27,7 @@ export function PersonCard({
           : newBadge
             ? "border-blossom bg-blossom-soft/40 text-ink ring-2 ring-blossom/60"
             : "border-line/90 bg-white/75 text-ink",
-        featured ? "min-h-[22rem]" : "min-h-[20rem]",
+        featured ? "min-h-[26rem]" : "min-h-[24rem]",
         "hover:-translate-y-1",
         className,
       )}
@@ -39,7 +39,7 @@ export function PersonCard({
       )}
       <div
         className={clsx(
-          "relative h-32 w-32 overflow-hidden rounded-full sm:h-36 sm:w-36",
+          "relative h-28 w-28 shrink-0 overflow-hidden rounded-full sm:h-32 sm:w-32",
           newBadge ? "ring-4 ring-blossom" : "ring-1 ring-black/5",
         )}
       >
@@ -47,14 +47,14 @@ export function PersonCard({
           src={image}
           alt={name}
           fill
-          sizes="(max-width: 640px) 128px, 144px"
+          sizes="(max-width: 640px) 112px, 128px"
           className="object-cover"
         />
       </div>
       <h3 className="type-display-small mt-6 text-2xl">{name}</h3>
       <p
         className={clsx(
-          "type-body mt-3 text-base",
+          "type-body mt-3 text-base leading-snug",
           inverse ? "text-canvas/78" : "text-ink-muted",
         )}
       >

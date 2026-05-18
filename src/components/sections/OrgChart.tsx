@@ -88,7 +88,7 @@ function getReportsToCopy(name: string) {
     case "Conni Lathrop":
       return "reports to Tom Abrams";
     case "Stacey Silva":
-      return "reports to Briana Drago, with dotted lines to Anthony & Spencer";
+      return "reports to Briana Drago, with a dotted advisory line to Spencer";
     default:
       return "";
   }
@@ -101,7 +101,7 @@ export function OrgChart() {
       background="cool"
       eyebrow="Section 7"
       title="How the SLT is structured"
-      description="Anthony and Spencer lead parallel operating lanes, with reporting lines drawn to actual managers and Stacey Silva carrying two advisory links into the founders."
+      description="Anthony and Spencer lead parallel operating lanes. Black solid lines show direct reporting; a pink dashed line marks Stacey Silva's advisory link to Spencer."
       contentClassName="space-y-10"
     >
       <div className="hidden overflow-x-auto rounded-[2rem] border border-line bg-white/70 p-6 xl:block">
